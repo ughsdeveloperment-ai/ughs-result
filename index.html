@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UGHS Result Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 350px;
+            margin: auto;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>UGHS Examination Result</h2>
+    <input type="text" id="roll" placeholder="Enter Roll Number">
+    <br>
+    <button onclick="checkResult()">Check Result</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    const students = {
+        "231": {name: "Rahul Kumar", marks: "78", result: "Pass"},
+        "232": {name: "Aditya Kumar", marks: "78", result: "Pass"}
+    };
+
+    function checkResult() {
+        const roll = document.getElementById("roll").value;
+        const resultDiv = document.getElementById("result");
+
+        if (students[roll]) {
+            resultDiv.innerHTML =
+                "Name: " + students[roll].name + "<br>" +
+                "Marks: " + students[roll].marks + "<br>" +
+                "Result: " + students[roll].result;
+        } else {
+            resultDiv.innerHTML = "Roll Number not found";
+        }
+    }
+</script>
+
+</body>
+</html>
