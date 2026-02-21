@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Examination 2026 Result</title>
+<title>UGHS Examination Result</title>
+
 <style>
 body{
     font-family: Arial;
@@ -11,11 +12,26 @@ body{
 
 .box{
     background:white;
-    padding:20px;
+    padding:25px;
     width:350px;
-    margin:30px auto;
+    margin:40px auto;
     border-radius:10px;
     box-shadow:0 0 10px gray;
+}
+
+input{
+    padding:10px;
+    width:80%;
+}
+
+button{
+    padding:10px 18px;
+    margin-top:12px;
+}
+
+#result{
+    margin-top:20px;
+    text-align:left;
 }
 </style>
 </head>
@@ -26,32 +42,66 @@ body{
 
 <div class="box">
 
-<p><b>Student Name:</b> Aditya Kumar</p>
-<p><b>Roll Number:</b> 2344</p>
-<p><b>Centre:</b> Koinpur</p>
-<p><b>Total Marks:</b> 200</p>
-<p><b>Obtained Marks:</b> 140</p>
-<p><b>Result:</b> Pass</p>
+<h3>Enter Roll Number</h3>
 
-<hr>
+<input type="text" id="rollInput" placeholder="Enter Roll Number">
 
-<p><b>Student Name:</b> Priyanka Sabar</p>
-<p><b>Roll Number:</b> 2345</p>
-<p><b>Centre:</b> Koinpur</p>
-<p><b>Total Marks:</b> 200</p>
-<p><b>Obtained Marks:</b> 78</p>
-<p><b>Result:</b> Pass</p>
+<br>
 
-<hr>
+<button onclick="checkResult()">View Result</button>
 
-<p><b>Student Name:</b> Priya Paik</p>
-<p><b>Roll Number:</b> 2336</p>
-<p><b>Centre:</b> Koinpur</p>
-<p><b>Total Marks:</b> 200</p>
-<p><b>Obtained Marks:</b> 78</p>
-<p><b>Result:</b> Pass</p>
+<div id="result"></div>
 
 </div>
+
+<script>
+
+var students = {
+"2344":{
+name:"Aditya Kumar",
+centre:"Koinpur",
+marks:140,
+total:200,
+result:"Pass"
+},
+
+"2345":{
+name:"Priyanka Sabar",
+centre:"Koinpur",
+marks:78,
+total:200,
+result:"Pass"
+},
+
+"2336":{
+name:"Priya Paik",
+centre:"Koinpur",
+marks:78,
+total:200,
+result:"Pass"
+}
+};
+
+function checkResult(){
+var roll = document.getElementById("rollInput").value;
+var output = document.getElementById("result");
+
+if(students[roll]){
+var s = students[roll];
+
+output.innerHTML =
+"<hr>"+
+"<b>Name:</b> "+s.name+"<br>"+
+"<b>Centre:</b> "+s.centre+"<br>"+
+"<b>Total Marks:</b> "+s.total+"<br>"+
+"<b>Obtained Marks:</b> "+s.marks+"<br>"+
+"<b>Result:</b> "+s.result;
+}
+else{
+output.innerHTML="<b style='color:red'>Roll Number Not Found</b>";
+}
+}
+</script>
 
 </body>
 </html>
