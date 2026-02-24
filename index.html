@@ -1,97 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>UGHS Result Portal</title>
-
-<style>
-body{
-font-family:Arial;
-background:#eef3ff;
-text-align:center;
-}
-
-.container{
-background:white;
-width:92%;
-margin:auto;
-margin-top:20px;
-padding:25px;
-border:4px solid #000080;
-}
-
-input{
-padding:8px;
-width:220px;
-}
-
-button{
-padding:8px 15px;
-background:#000080;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-th,td{
-border:1px solid black;
-padding:8px;
-}
-
-th{
-background:#e6e6ff;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>UGHS Organisation Examination 2025/2026</h2>
-
-<p>District : Gajapati</p>
-<p>Centre : Koinpur</p>
-<p>Centre Code : 099882</p>
-
-<h3>Enter Roll Number</h3>
-
-<input type="text" id="rollInput" placeholder="Roll Number">
-<br><br>
-
-<button onclick="searchResult()">Search Result</button>
-
-<div id="result"></div>
-
-</div>
-
 <script>
 
-/* ✅ Student Database */
+var students = {
 
-var students={
+"20019":{name:"MUNA SABAR",gk:45,english:40,math:35},
+"20020":{name:"SUKUMANI SABAR",gk:44,english:38,math:36},
+"20021":{name:"LAXMINARAYAN SABAR",gk:46,english:42,math:38},
+"20023":{name:"SANTUNU SABAR",gk:43,english:39,math:36},
+"20024":{name:"ESWAR SABARA",gk:42,english:38,math:35},
+"20025":{name:"KAINA RAIKA",gk:40,english:36,math:34},
+"20026":{name:"PRASANTA SABAR",gk:48,english:44,math:40},
+"20027":{name:"CHAKRA SABAR",gk:41,english:37,math:34},
+"20028":{name:"SUDHAKAR SABAR",gk:49,english:45,math:42},
+"20029":{name:"LOKANATH SABAR",gk:44,english:40,math:36},
+"20030":{name:"RAMAKANTA SABAR",gk:45,english:41,math:38},
+"20031":{name:"MANOJ SANAPATTA BHUYAN",gk:50,english:45,math:42},
+"20032":{name:"JAYA DEV SABAR",gk:42,english:38,math:36},
+"20033":{name:"NABINA SABAR",gk:40,english:36,math:34},
+"20034":{name:"DEBENDRA BHUYAN",gk:46,english:42,math:38},
+"20035":{name:"PRAMILA SABAR",gk:43,english:39,math:36},
+"20036":{name:"KAILASH CHANDRA SABAR",gk:50,english:45,math:40},
+"20037":{name:"SUNITA SABAR",gk:42,english:38,math:35},
+"20038":{name:"RAIBATI GAMANGO",gk:40,english:36,math:34},
+"20039":{name:"GOPAL SABAR",gk:48,english:44,math:40},
+"20040":{name:"SUKANTA KUMAR SABAR",gk:47,english:43,math:38},
+"20041":{name:"BIDYA DHARA SABAR",gk:50,english:46,math:42},
+"20042":{name:"PRADEEP NAYAK",gk:44,english:40,math:36},
+"20043":{name:"SOMONATH BADO RAITA",gk:42,english:38,math:34},
+"20044":{name:"SIBARAM SABAR",gk:46,english:42,math:38},
+"20046":{name:"ABHIMANYU SABAR",gk:48,english:44,math:40},
+"20048":{name:"RINA SABAR",gk:42,english:38,math:34},
+"20049":{name:"MAMATA BADAMUNDI",gk:44,english:40,math:36},
+"20050":{name:"SARATA SABAR",gk:41,english:37,math:33},
+"20051":{name:"DILLESWARA RAUTO",gk:45,english:41,math:36}
 
-"20019":{name:"MUNA SABAR",gk:45,english:38,math:37},
-"20020":{name:"SUKUMANI SABAR",gk:42,english:36,math:35},
-"20021":{name:"LAXMINARAYAN SABAR",gk:44,english:39,math:37},
-"20023":{name:"SANTUNU SABAR",gk:43,english:37,math:34},
-"20024":{name:"ESWAR SABARA",gk:41,english:36,math:33},
-"20025":{name:"KAINA RAIKA",gk:40,english:35,math:32},
-"20026":{name:"PRASANTA SABAR",gk:46,english:40,math:38},
-"20027":{name:"CHAKRA SABAR",gk:38,english:34,math:31},
-"20028":{name:"SUDHAKAR SABAR",gk:47,english:39,math:36},
-"20029":{name:"LOKANATH SABAR",gk:42,english:36,math:33},
-"20030":{name:"RAMAKANTA SABAR",gk:43,english:37,math:34},
-"20031":{name:"MANOJ SANAPATTA BHUYAN",gk:48,english:40,math:38},
-"20032":{name:"JAYA DEV SABAR",gk:41,english:34,math:32},
-"20033":{name:"NABINA SABAR",gk:39,english:33,math:30},
-"20034":{name:"DEBENDRA BHUYAN",gk:44,english:38,math:34},
-"20035":{name:"PRAMILA SABAR",gk:40,english:35,math:32},
-"20036":{name:"KAILASH CHANDRA SABAR",gk:48,english:40,math:37},
-"20037":{name:"SUNITA SABAR",gk:41
+};
+
+</script>
