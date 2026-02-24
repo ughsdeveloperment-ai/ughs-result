@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Organisation Result</title>
+<title>UGHS Organisation Examination 2025/2026</title>
+<style>
+body{font-family:Arial;text-align:center;background:#f2f2f2;}
+.box{background:white;width:90%;margin:auto;padding:20px;margin-top:20px;}
+table{width:100%;border-collapse:collapse;margin-top:15px;}
+th,td{border:1px solid black;padding:8px;}
+input{padding:8px;width:200px;}
+button{padding:8px 15px;background:green;color:white;border:none;}
+</style>
 </head>
-<body style="text-align:center; font-family:Arial;">
+
+<body>
+
+<div class="box">
 
 <h2>UGHS Organisation Examination 2025/2026</h2>
 <p>District: Gajapati</p>
@@ -15,25 +26,72 @@
 
 <div id="result"></div>
 
+</div>
+
 <script>
 
 var students = {
-"20019": {name:"MUNA SABAR", total:140},
-"20020": {name:"SUKUMANI SABAR", total:136},
-"20021": {name:"LAXMINARAYAN SABAR", total:145}
+
+"20019": {name:"MUNA SABAR", gk:38, odia:36, english:34, math:32},
+"20020": {name:"SUKUMANI SABAR", gk:35, odia:37, english:33, math:31},
+"20021": {name:"LAXMINARAYAN SABAR", gk:40, odia:35, english:36, math:34},
+"20023": {name:"SANTUNU SABAR", gk:36, odia:34, english:35, math:33},
+"20024": {name:"ESWAR SABARA", gk:37, odia:39, english:32, math:30},
+"20025": {name:"KAINA RAIKA", gk:34, odia:36, english:35, math:33},
+"20026": {name:"PRASANTA SABAR", gk:41, odia:38, english:37, math:36},
+"20027": {name:"CHAKRA SABAR", gk:33, odia:35, english:34, math:32},
+"20028": {name:"SUDHAKAR SABAR", gk:39, odia:37, english:36, math:35},
+"20029": {name:"LOKANATH SABAR", gk:36, odia:38, english:34, math:33},
+"20030": {name:"RAMAKANTA SABAR", gk:35, odia:34, english:33, math:32},
+"20031": {name:"MANOJ SANAPATTA BHUYAN", gk:42, odia:40, english:38, math:37},
+"20032": {name:"JAYA DEV SABAR", gk:37, odia:36, english:35, math:34},
+"20033": {name:"NABINA SABAR", gk:34, odia:35, english:36, math:33},
+"20034": {name:"DEBENDRA BHUYAN", gk:38, odia:37, english:35, math:34},
+"20035": {name:"PRAMILA SABAR", gk:36, odia:34, english:33, math:31},
+"20036": {name:"KAILASH CHANDRA SABAR", gk:40, odia:39, english:37, math:35},
+"20037": {name:"SUNITA SABAR", gk:35, odia:36, english:34, math:32},
+"20038": {name:"RAIBATI GAMANGO", gk:33, odia:34, english:35, math:31},
+"20039": {name:"GOPAL SABAR", gk:39, odia:38, english:36, math:34},
+"20040": {name:"SUKANTA KUMAR SABAR", gk:37, odia:36, english:35, math:33},
+"20041": {name:"BIDYA DHARA SABAR", gk:41, odia:40, english:38, math:36},
+"20042": {name:"PRADEEP NAYAK", gk:36, odia:35, english:34, math:32},
+"20043": {name:"SOMONATH BADO RAITA", gk:38, odia:37, english:35, math:34},
+"20044": {name:"SIBARAM SABAR", gk:34, odia:33, english:32, math:31},
+"20046": {name:"ABHIMANYU SABAR", gk:40, odia:38, english:36, math:35},
+"20048": {name:"RINA SABAR", gk:35, odia:36, english:34, math:33},
+"20049": {name:"MAMATA BADAMUNDI", gk:37, odia:35, english:33, math:32},
+"20050": {name:"SARATA SABAR", gk:36, odia:34, english:32, math:31},
+"20051": {name:"DILLESWARA RAUTO", gk:39, odia:37, english:35, math:34}
+
 };
 
 function search(){
-var roll = document.getElementById("roll").value;
-if(students[roll]){
-document.getElementById("result").innerHTML =
-"<h3>Name: "+students[roll].name+
-"<br>Total: "+students[roll].total+"/200<br>Result: PASS</h3>";
+var roll=document.getElementById("roll").value;
+var s=students[roll];
+
+if(s){
+
+var total = s.gk + s.odia + s.english + s.math;
+
+document.getElementById("result").innerHTML = `
+<h3>Student Name: ${s.name}</h3>
+
+<table>
+<tr><th>Subject</th><th>Marks</th></tr>
+<tr><td>General Knowledge</td><td>${s.gk}</td></tr>
+<tr><td>Odia</td><td>${s.odia}</td></tr>
+<tr><td>English</td><td>${s.english}</td></tr>
+<tr><td>Mathematics</td><td>${s.math}</td></tr>
+<tr><th>Total</th><th>${total}/200</th></tr>
+<tr><th>Result</th><th>PASS</th></tr>
+</table>
+`;
 }
 else{
 document.getElementById("result").innerHTML =
-"<h3 style='color:red;'>Roll Not Found</h3>";
+"<h3 style='color:red;'>Roll Number Not Found</h3>";
 }
+
 }
 
 </script>
