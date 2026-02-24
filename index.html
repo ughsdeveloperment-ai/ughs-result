@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Examination Result Portal</title>
+<title>UGHS Examination Result</title>
 
 <style>
 
@@ -16,27 +16,12 @@ background:white;
 width:92%;
 margin:auto;
 margin-top:20px;
-padding:25px;
+padding:20px;
 border:4px solid #000080;
-box-shadow:0 0 10px gray;
 }
 
 h2{
 color:#000080;
-}
-
-input{
-padding:8px;
-width:220px;
-margin:10px;
-}
-
-button{
-padding:8px 15px;
-background:#000080;
-color:white;
-border:none;
-cursor:pointer;
 }
 
 table{
@@ -48,14 +33,28 @@ margin-top:20px;
 th,td{
 border:1px solid black;
 padding:8px;
+padding:8px;
 }
 
 th{
 background:#e6e6ff;
 }
 
+input{
+padding:8px;
+width:220px;
+}
+
+button{
+padding:8px 15px;
+background:#000080;
+color:white;
+border:none;
+cursor:pointer;
+}
+
 .signature{
-margin-top:60px;
+margin-top:50px;
 text-align:right;
 padding-right:50px;
 font-family:cursive;
@@ -64,7 +63,6 @@ color:#000080;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -77,11 +75,10 @@ color:#000080;
 <p>Centre : Koinpur</p>
 <p>Centre Code : 099882</p>
 
-<h3>Enter Roll Number</h3>
+<h3>Result Search</h3>
 
-<input type="text" id="rollInput" placeholder="Roll Number">
-<br>
-<button onclick="searchResult()">Search Result</button>
+<input type="text" id="rollInput" placeholder="Enter Roll Number">
+<button onclick="searchResult()">Search</button>
 
 <div id="result"></div>
 
@@ -126,7 +123,7 @@ var students={
 
 };
 
-/* Search System */
+/* Search Function */
 
 function searchResult(){
 
@@ -145,7 +142,6 @@ if(percent>=60) division="First Division";
 else if(percent>=45) division="Second Division";
 
 document.getElementById("result").innerHTML=`
-
 <hr>
 
 <h3>${s.name}</h3>
@@ -165,7 +161,7 @@ document.getElementById("result").innerHTML=`
 
 </table>
 
-<div style="margin-top:60px;text-align:right;padding-right:50px;">
+<div style="margin-top:50px;text-align:right;padding-right:50px;">
 <div style="font-family:cursive;font-size:26px;color:#000080;">
 Debendra Kumar
 </div>
