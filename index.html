@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Result Portal 2025/2026</title>
+<title>UGHS Result Portal</title>
 
 <style>
 body{
-font-family: Arial;
-background:#f4f6ff;
+font-family:Arial;
 text-align:center;
+background:#f4f6ff;
 }
 
 .container{
 background:white;
 width:90%;
 margin:auto;
-margin-top:20px;
+margin-top:30px;
 padding:20px;
 border:3px solid #000080;
 }
@@ -46,35 +46,15 @@ padding:8px;
 th{
 background:#e6e6ff;
 }
-
-.print-btn{
-margin-top:20px;
-padding:10px 20px;
-background:green;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-.signature{
-margin-top:40px;
-text-align:right;
-padding-right:50px;
-font-family:cursive;
-font-size:26px;
-color:#000080;
-}
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h2>UGHS Organisation Examination 2025/2026</h2>
-
-<p>District: Gajapati</p>
-<p>Centre Code: 099882</p>
+<h2>UGHS Organisation Result 2025/2026</h2>
 
 <h3>Enter Roll Number</h3>
 
@@ -87,21 +67,21 @@ color:#000080;
 
 <script>
 
-/* Students Data */
+/* Student Database */
 
 var students={
 
 "20019":{name:"MUNA SABAR",gk:40,english:35,math:30},
-"20020":{name:"SUKUMANI SABAR",gk:38,english:34,math:32},
-"20021":{name:"LAXMINARAYAN SABAR",gk:42,english:38,math:35},
-"20023":{name:"SANTUNU SABAR",gk:39,english:36,math:33},
-"20024":{name:"ESWAR SABARA",gk:41,english:37,math:34},
-"20025":{name:"KAINA RAIKA",gk:37,english:35,math:30},
-"20026":{name:"PRASANTA SABAR",gk:43,english:40,math:38},
-"20027":{name:"CHAKRA SABAR",gk:36,english:34,math:30},
+"20020":{name:"SUKUMANI SABAR",gk:42,english:36,math:32},
+"20021":{name:"LAXMINARAYAN SABAR",gk:38,english:34,math:30},
+"20023":{name:"SANTUNU SABAR",gk:41,english:37,math:33},
+"20024":{name:"ESWAR SABARA",gk:40,english:36,math:32},
+"20025":{name:"KAINA RAIKA",gk:39,english:35,math:30},
+"20026":{name:"PRASANTA SABAR",gk:43,english:40,math:37},
+"20027":{name:"CHAKRA SABAR",gk:38,english:34,math:30},
 "20028":{name:"SUDHAKAR SABAR",gk:44,english:39,math:36},
-"20029":{name:"LOKANATH SABAR",gk:38,english:35,math:31},
-"20030":{name:"RAMAKANTA SABAR",gk:40,english:36,math:33},
+"20029":{name:"LOKANATH SABAR",gk:40,english:36,math:31},
+"20030":{name:"RAMAKANTA SABAR",gk:41,english:37,math:33},
 "20031":{name:"MANOJ SANAPATTA BHUYAN",gk:45,english:40,math:35},
 "20032":{name:"JAYA DEV SABAR",gk:39,english:34,math:32},
 "20033":{name:"NABINA SABAR",gk:37,english:33,math:30},
@@ -134,49 +114,28 @@ var s=students[roll];
 if(s){
 
 var total=s.gk+s.english+s.math;
-var percent=(total/200)*100;
-
-var division="";
-if(percent>=60) division="First Division";
-else if(percent>=45) division="Second Division";
-else division="Third Division";
+var percent=(total/120)*100;
 
 document.getElementById("result").innerHTML=`
-
 <hr>
-
 <h3>${s.name}</h3>
 <p>Roll Number : ${roll}</p>
 
 <table>
-
 <tr><th>Subject</th><th>Marks</th></tr>
-<tr><td>General Knowledge</td><td>${s.gk}</td></tr>
+<tr><td>GK</td><td>${s.gk}</td></tr>
 <tr><td>English</td><td>${s.english}</td></tr>
-<tr><td>Mathematics</td><td>${s.math}</td></tr>
+<tr><td>Math</td><td>${s.math}</td></tr>
 
-<tr><th>Total</th><th>${total}/200</th></tr>
+<tr><th>Total</th><th>${total}/120</th></tr>
 <tr><th>Percentage</th><th>${percent.toFixed(2)}%</th></tr>
-<tr><th>Division</th><th>${division}</th></tr>
 <tr><th>Result</th><th style="color:green">PASS</th></tr>
-
 </table>
-
-<button class="print-btn" onclick="window.print()">Print Result</button>
-
-<div class="signature">
-Debendra Kumar<br>
-Controller of Examination<br>
-UGHS Organisation
-</div>
-
 `;
 
 }else{
-
 document.getElementById("result").innerHTML=
 "<h3 style='color:red'>Roll Number Not Found</h3>";
-
 }
 
 }
