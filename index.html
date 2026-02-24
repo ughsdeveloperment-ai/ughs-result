@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Result Portal</title>
+<title>UGHS Examination Result Portal</title>
 
 <style>
+
 body{
-font-family:Arial;
+font-family: Arial;
+background:#eef3ff;
 text-align:center;
-background:#f4f6ff;
 }
 
 .container{
 background:white;
-width:90%;
+width:92%;
 margin:auto;
-margin-top:30px;
-padding:20px;
-border:3px solid #000080;
+margin-top:20px;
+padding:25px;
+border:4px solid #000080;
+box-shadow:0 0 10px gray;
+}
+
+h2{
+color:#000080;
 }
 
 input{
 padding:8px;
 width:220px;
+margin:10px;
 }
 
 button{
@@ -46,6 +53,16 @@ padding:8px;
 th{
 background:#e6e6ff;
 }
+
+.signature{
+margin-top:60px;
+text-align:right;
+padding-right:50px;
+font-family:cursive;
+font-size:26px;
+color:#000080;
+}
+
 </style>
 
 </head>
@@ -54,12 +71,17 @@ background:#e6e6ff;
 
 <div class="container">
 
-<h2>UGHS Organisation Result 2025/2026</h2>
+<h2>UGHS Organisation Examination 2025/2026</h2>
+
+<p>District : Gajapati</p>
+<p>Centre : Koinpur</p>
+<p>Centre Code : 099882</p>
 
 <h3>Enter Roll Number</h3>
 
 <input type="text" id="rollInput" placeholder="Roll Number">
-<button onclick="searchResult()">Search</button>
+<br>
+<button onclick="searchResult()">Search Result</button>
 
 <div id="result"></div>
 
@@ -71,71 +93,92 @@ background:#e6e6ff;
 
 var students={
 
-"20019":{name:"MUNA SABAR",gk:40,english:35,math:30},
+"20019":{name:"MUNA SABAR",gk:45,english:38,math:35},
 "20020":{name:"SUKUMANI SABAR",gk:42,english:36,math:32},
-"20021":{name:"LAXMINARAYAN SABAR",gk:38,english:34,math:30},
-"20023":{name:"SANTUNU SABAR",gk:41,english:37,math:33},
-"20024":{name:"ESWAR SABARA",gk:40,english:36,math:32},
-"20025":{name:"KAINA RAIKA",gk:39,english:35,math:30},
-"20026":{name:"PRASANTA SABAR",gk:43,english:40,math:37},
+"20021":{name:"LAXMINARAYAN SABAR",gk:44,english:39,math:34},
+"20023":{name:"SANTUNU SABAR",gk:43,english:37,math:33},
+"20024":{name:"ESWAR SABARA",gk:41,english:36,math:32},
+"20025":{name:"KAINA RAIKA",gk:40,english:35,math:30},
+"20026":{name:"PRASANTA SABAR",gk:46,english:40,math:38},
 "20027":{name:"CHAKRA SABAR",gk:38,english:34,math:30},
-"20028":{name:"SUDHAKAR SABAR",gk:44,english:39,math:36},
-"20029":{name:"LOKANATH SABAR",gk:40,english:36,math:31},
-"20030":{name:"RAMAKANTA SABAR",gk:41,english:37,math:33},
-"20031":{name:"MANOJ SANAPATTA BHUYAN",gk:45,english:40,math:35},
-"20032":{name:"JAYA DEV SABAR",gk:39,english:34,math:32},
-"20033":{name:"NABINA SABAR",gk:37,english:33,math:30},
-"20034":{name:"DEBENDRA BHUYAN",gk:42,english:38,math:34},
-"20035":{name:"PRAMILA SABAR",gk:38,english:35,math:32},
-"20036":{name:"KAILASH CHANDRA SABAR",gk:44,english:40,math:36},
-"20037":{name:"SUNITA SABAR",gk:39,english:36,math:31},
-"20038":{name:"RAIBATI GAMANGO",gk:36,english:33,math:30},
-"20039":{name:"GOPAL SABAR",gk:43,english:38,math:35},
-"20040":{name:"SUKANTA KUMAR SABAR",gk:42,english:39,math:33},
-"20041":{name:"BIDYA DHARA SABAR",gk:45,english:40,math:35},
-"20042":{name:"PRADEEP NAYAK",gk:40,english:36,math:32},
-"20043":{name:"SOMONATH BADO RAITA",gk:38,english:34,math:30},
-"20044":{name:"SIBARAM SABAR",gk:41,english:37,math:32},
-"20046":{name:"ABHIMANYU SABAR",gk:43,english:38,math:34},
-"20048":{name:"RINA SABAR",gk:39,english:35,math:30},
-"20049":{name:"MAMATA BADAMUNDI",gk:40,english:36,math:32},
-"20050":{name:"SARATA SABAR",gk:38,english:34,math:31},
-"20051":{name:"DILLESWARA RAUTO",gk:42,english:38,math:33}
+"20028":{name:"SUDHAKAR SABAR",gk:47,english:39,math:36},
+"20029":{name:"LOKANATH SABAR",gk:42,english:36,math:31},
+"20030":{name:"RAMAKANTA SABAR",gk:43,english:37,math:33},
+"20031":{name:"MANOJ SANAPATTA BHUYAN",gk:48,english:40,math:35},
+"20032":{name:"JAYA DEV SABAR",gk:41,english:34,math:32},
+"20033":{name:"NABINA SABAR",gk:39,english:33,math:30},
+"20034":{name:"DEBENDRA BHUYAN",gk:44,english:38,math:34},
+"20035":{name:"PRAMILA SABAR",gk:40,english:35,math:32},
+"20036":{name:"KAILASH CHANDRA SABAR",gk:48,english:40,math:36},
+"20037":{name:"SUNITA SABAR",gk:41,english:36,math:31},
+"20038":{name:"RAIBATI GAMANGO",gk:38,english:33,math:30},
+"20039":{name:"GOPAL SABAR",gk:46,english:38,math:35},
+"20040":{name:"SUKANTA KUMAR SABAR",gk:45,english:39,math:33},
+"20041":{name:"BIDYA DHARA SABAR",gk:48,english:40,math:35},
+"20042":{name:"PRADEEP NAYAK",gk:43,english:36,math:32},
+"20043":{name:"SOMONATH BADO RAITA",gk:40,english:34,math:30},
+"20044":{name:"SIBARAM SABAR",gk:44,english:37,math:32},
+"20046":{name:"ABHIMANYU SABAR",gk:46,english:38,math:34},
+"20048":{name:"RINA SABAR",gk:41,english:35,math:30},
+"20049":{name:"MAMATA BADAMUNDI",gk:42,english:36,math:32},
+"20050":{name:"SARATA SABAR",gk:40,english:34,math:31},
+"20051":{name:"DILLESWARA RAUTO",gk:45,english:38,math:33}
 
 };
 
-/* Search Function */
+/* Search System */
 
 function searchResult(){
 
 var roll=document.getElementById("rollInput").value.trim();
-var s=students[roll];
 
-if(s){
+if(students[roll]){
+
+var s=students[roll];
 
 var total=s.gk+s.english+s.math;
 var percent=(total/120)*100;
 
+var division="Third Division";
+
+if(percent>=60) division="First Division";
+else if(percent>=45) division="Second Division";
+
 document.getElementById("result").innerHTML=`
+
 <hr>
+
 <h3>${s.name}</h3>
 <p>Roll Number : ${roll}</p>
 
 <table>
+
 <tr><th>Subject</th><th>Marks</th></tr>
-<tr><td>GK</td><td>${s.gk}</td></tr>
+<tr><td>General Knowledge</td><td>${s.gk}</td></tr>
 <tr><td>English</td><td>${s.english}</td></tr>
-<tr><td>Math</td><td>${s.math}</td></tr>
+<tr><td>Mathematics</td><td>${s.math}</td></tr>
 
 <tr><th>Total</th><th>${total}/120</th></tr>
 <tr><th>Percentage</th><th>${percent.toFixed(2)}%</th></tr>
+<tr><th>Division</th><th>${division}</th></tr>
 <tr><th>Result</th><th style="color:green">PASS</th></tr>
+
 </table>
+
+<div style="margin-top:60px;text-align:right;padding-right:50px;">
+<div style="font-family:cursive;font-size:26px;color:#000080;">
+Debendra Kumar
+</div>
+<div>Authority Signature</div>
+</div>
+
 `;
 
 }else{
+
 document.getElementById("result").innerHTML=
 "<h3 style='color:red'>Roll Number Not Found</h3>";
+
 }
 
 }
