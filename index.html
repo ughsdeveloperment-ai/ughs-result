@@ -1,5 +1,61 @@
-var students = {
+<!DOCTYPE html>
+<html>
+<head>
+<title>UGHS Organisation Examination 2025/2026 Result</title>
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+text-align:center;
+}
+.box{
+background:white;
+width:80%;
+margin:auto;
+padding:20px;
+margin-top:20px;
+box-shadow:0 0 10px gray;
+}
+input{
+padding:10px;
+width:200px;
+}
+button{
+padding:10px 20px;
+background:green;
+color:white;
+border:none;
+}
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+}
+table, th, td{
+border:1px solid black;
+padding:8px;
+}
+</style>
+</head>
 
+<body>
+
+<div class="box">
+<h2>UGHS Organisation Examination 2025/2026</h2>
+<p>District: Gajapati</p>
+<p>Centre Code: 099882</p>
+
+<h3>Enter Roll Number</h3>
+<input type="text" id="roll" placeholder="Enter Roll Number">
+<button onclick="searchResult()">Search</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+var students = {
 "20019": {name:"MUNA SABAR", gk:38, odia:36, english:34, math:32, total:140, result:"PASS"},
 "20020": {name:"SUKUMANI SABAR", gk:35, odia:37, english:33, math:31, total:136, result:"PASS"},
 "20021": {name:"LAXMINARAYAN SABAR", gk:40, odia:35, english:36, math:34, total:145, result:"PASS"},
@@ -30,5 +86,32 @@ var students = {
 "20049": {name:"MAMATA BADAMUNDI", gk:37, odia:35, english:33, math:32, total:137, result:"PASS"},
 "20050": {name:"SARATA SABAR", gk:36, odia:34, english:32, math:31, total:133, result:"PASS"},
 "20051": {name:"DILLESWARA RAUTO", gk:39, odia:37, english:35, math:34, total:145, result:"PASS"}
-
 };
+
+function searchResult(){
+var roll = document.getElementById("roll").value;
+var data = students[roll];
+
+if(data){
+document.getElementById("result").innerHTML = `
+<h3>Result</h3>
+<p><b>Name:</b> ${data.name}</p>
+<table>
+<tr><th>Subject</th><th>Marks</th></tr>
+<tr><td>General Knowledge</td><td>${data.gk}</td></tr>
+<tr><td>Odia</td><td>${data.odia}</td></tr>
+<tr><td>English</td><td>${data.english}</td></tr>
+<tr><td>Mathematics</td><td>${data.math}</td></tr>
+<tr><th>Total</th><th>${data.total}/200</th></tr>
+<tr><th>Result</th><th>${data.result}</th></tr>
+</table>
+`;
+}else{
+document.getElementById("result").innerHTML = "<h3 style='color:red;'>Roll Number Not Found</h3>";
+}
+}
+
+</script>
+
+</body>
+</html>
