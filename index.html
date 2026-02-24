@@ -5,39 +5,24 @@
 
 <style>
 body{
-font-family: Arial, sans-serif;
-background:#f0f5ff;
+font-family: Arial;
+background:#f2f6ff;
 text-align:center;
 }
 
 .container{
 background:white;
-width:90%;
+width:95%;
 margin:auto;
 margin-top:20px;
 padding:20px;
 border:4px solid #000080;
 }
 
-.header{
-border-bottom:3px solid black;
-padding-bottom:10px;
-}
-
-.logo{
-font-size:22px;
-font-weight:bold;
-color:#000080;
-}
-
-h2{
-margin:5px;
-}
-
 table{
 width:100%;
 border-collapse:collapse;
-margin-top:15px;
+margin-top:20px;
 }
 
 th,td{
@@ -49,22 +34,13 @@ th{
 background:#e6e6ff;
 }
 
-input{
-padding:8px;
-width:220px;
-}
-
-button{
-padding:8px 15px;
-background:#000080;
+.print-btn{
+margin-top:20px;
+padding:10px 20px;
+background:green;
 color:white;
 border:none;
 cursor:pointer;
-margin:5px;
-}
-
-.print-btn{
-background:green;
 }
 
 .signature{
@@ -75,41 +51,47 @@ padding-right:50px;
 
 .signature-name{
 font-family:cursive;
-font-size:26px;
+font-size:28px;
 color:#000080;
 }
-
-.seal{
-margin-top:20px;
-font-size:18px;
-color:red;
-font-weight:bold;
-border:2px solid red;
-display:inline-block;
-padding:8px 20px;
-border-radius:50px;
-}
-
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="header">
-<div class="logo">UGHS ORGANISATION</div>
-<h2>Examination 2025/2026</h2>
+<h2>UGHS ORGANISATION</h2>
+<h3>Examination 2025/2026</h3>
+
 <p><b>District:</b> Gajapati</p>
 <p><b>Centre Code:</b> 099882</p>
+
+<table>
+<tr>
+<th>Roll</th>
+<th>Name</th>
+<th>GK</th>
+<th>English</th>
+<th>Math</th>
+<th>Total</th>
+<th>Percentage</th>
+<th>Division</th>
+<th>Result</th>
+</tr>
+
+<tbody id="allResults"></tbody>
+
+</table>
+
+<button class="print-btn" onclick="window.print()">Print Result</button>
+
+<div class="signature">
+<div class="signature-name">Debendra Kumar</div>
+<div>Controller of Examination</div>
+<div>UGHS Organisation</div>
 </div>
-
-<h3>Result Search</h3>
-
-<input type="text" id="roll" placeholder="Enter Roll Number">
-<button onclick="search()">Search</button>
-
-<div id="result"></div>
 
 </div>
 
@@ -117,69 +99,77 @@ border-radius:50px;
 
 var students = {
 
-"20019": {name:"MUNA SABAR", gk:70, english:65, math:60},
-"20020": {name:"SUKUMANI SABAR", gk:68, english:66, math:62},
-"20021": {name:"LAXMINARAYAN SABAR", gk:75, english:70, math:65},
-"20023": {name:"SANTUNU SABAR", gk:72, english:68, math:64},
-"20024": {name:"ESWAR SABARA", gk:71, english:69, math:63}
+"20019": {name:"MUNA SABAR", gk:72, english:68, math:64},
+"20020": {name:"SUKUMANI SABAR", gk:70, english:66, math:63},
+"20021": {name:"LAXMINARAYAN SABAR", gk:78, english:74, math:69},
+"20023": {name:"SANTUNU SABAR", gk:73, english:67, math:65},
+"20024": {name:"ESWAR SABARA", gk:71, english:69, math:62},
+"20025": {name:"KAINA RAIKA", gk:69, english:64, math:60},
+"20026": {name:"PRASANTA SABAR", gk:74, english:70, math:66},
+"20027": {name:"CHAKRA SABAR", gk:68, english:63, math:59},
+"20028": {name:"SUDHAKAR SABAR", gk:75, english:72, math:67},
+"20029": {name:"LOKANATH SABAR", gk:70, english:65, math:61},
+"20030": {name:"RAMAKANTA SABAR", gk:73, english:69, math:64},
+"20031": {name:"MANOJ SANAPATTA BHUYAN", gk:77, english:73, math:68},
+"20032": {name:"JAYA DEV SABAR", gk:71, english:66, math:62},
+"20033": {name:"NABINA SABAR", gk:69, english:64, math:60},
+"20034": {name:"DEBENDRA BHUYAN", gk:74, english:70, math:66},
+"20035": {name:"PRAMILA SABAR", gk:72, english:68, math:63},
+"20036": {name:"KAILASH CHANDRA SABAR", gk:79, english:75, math:71},
+"20037": {name:"SUNITA SABAR", gk:70, english:67, math:62},
+"20038": {name:"RAIBATI GAMANGO", gk:68, english:63, math:59},
+"20039": {name:"GOPAL SABAR", gk:74, english:70, math:65},
+"20040": {name:"SUKANTA KUMAR SABAR", gk:76, english:72, math:68},
+"20041": {name:"BIDYA DHARA SABAR", gk:71, english:66, math:61},
+"20042": {name:"PRADEEP NAYAK", gk:73, english:69, math:64},
+"20043": {name:"SOMONATH BADO RAITA", gk:69, english:64, math:60},
+"20044": {name:"SIBARAM SABAR", gk:75, english:71, math:67},
+"20046": {name:"ABHIMANYU SABAR", gk:72, english:68, math:63},
+"20048": {name:"RINA SABAR", gk:70, english:66, math:61},
+"20049": {name:"MAMATA BADAMUNDI", gk:73, english:69, math:64},
+"20050": {name:"SARATA SABAR", gk:71, english:67, math:62},
+"20051": {name:"DILLESWARA RAUTO", gk:74, english:70, math:66}
 
 };
 
-function search(){
+var output="";
 
-var roll = document.getElementById("roll").value;
-var s = students[roll];
+for(var roll in students){
 
-if(s){
+var s=students[roll];
 
-var total = s.gk + s.english + s.math;
-var percent = (total/200)*100;
+var total=s.gk+s.english+s.math;
+var percent=(total/200)*100;
 
 var division="";
 
-if(percent >= 60){
+if(percent>=60){
 division="First Division";
 }
-else if(percent >= 45){
+else if(percent>=45){
 division="Second Division";
 }
 else{
 division="Third Division";
 }
 
-document.getElementById("result").innerHTML = `
-<hr>
-<h3>Student Name: ${s.name}</h3>
-<p><b>Roll Number:</b> ${roll}</p>
-
-<table>
-<tr><th>Subject</th><th>Marks</th></tr>
-<tr><td>General Knowledge</td><td>${s.gk}</td></tr>
-<tr><td>English</td><td>${s.english}</td></tr>
-<tr><td>Mathematics</td><td>${s.math}</td></tr>
-<tr><th>Total</th><th>${total}/200</th></tr>
-<tr><th>Percentage</th><th>${percent.toFixed(2)}%</th></tr>
-<tr><th>Division</th><th>${division}</th></tr>
-<tr><th>Result</th><th>PASS</th></tr>
-</table>
-
-<div class="seal">OFFICIAL RESULT - ODISHA</div>
-
-<div class="signature">
-<div class="signature-name">A. K. Development</div>
-<div>Controller of Examination</div>
-<div>UGHS Organisation</div>
-</div>
-
-<button class="print-btn" onclick="window.print()">Print Result</button>
+output+=`
+<tr>
+<td>${roll}</td>
+<td>${s.name}</td>
+<td>${s.gk}</td>
+<td>${s.english}</td>
+<td>${s.math}</td>
+<td>${total}</td>
+<td>${percent.toFixed(2)}%</td>
+<td>${division}</td>
+<td>PASS</td>
+</tr>
 `;
-}
-else{
-document.getElementById("result").innerHTML =
-"<h3 style='color:red;'>Roll Number Not Found</h3>";
-}
 
 }
+
+document.getElementById("allResults").innerHTML=output;
 
 </script>
 
