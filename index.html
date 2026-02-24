@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UGHS Examination Result</title>
+<title>UGHS Result Portal</title>
 
 <style>
-
 body{
-font-family: Arial;
+font-family:Arial;
 background:#eef3ff;
 text-align:center;
 }
@@ -18,17 +17,11 @@ margin:auto;
 margin-top:20px;
 padding:25px;
 border:4px solid #000080;
-box-shadow:0 0 10px gray;
-}
-
-h2{
-color:#000080;
 }
 
 input{
 padding:8px;
 width:220px;
-margin:10px;
 }
 
 button{
@@ -53,23 +46,8 @@ padding:8px;
 th{
 background:#e6e6ff;
 }
-
-.signature{
-margin-top:60px;
-text-align:right;
-padding-right:60px;
-}
-
-.signature-name{
-font-family:cursive;
-font-size:32px;
-color:#000080;
-border-bottom:2px solid #000080;
-display:inline-block;
-padding:5px 20px;
-}
-
 </style>
+
 </head>
 
 <body>
@@ -78,14 +56,15 @@ padding:5px 20px;
 
 <h2>UGHS Organisation Examination 2025/2026</h2>
 
-<p><b>District :</b> Gajapati</p>
-<p><b>Centre :</b> Koinpur</p>
-<p><b>Centre Code :</b> 099882</p>
+<p>District : Gajapati</p>
+<p>Centre : Koinpur</p>
+<p>Centre Code : 099882</p>
 
 <h3>Enter Roll Number</h3>
 
 <input type="text" id="rollInput" placeholder="Roll Number">
-<br>
+<br><br>
+
 <button onclick="searchResult()">Search Result</button>
 
 <div id="result"></div>
@@ -94,7 +73,7 @@ padding:5px 20px;
 
 <script>
 
-/* Student Database */
+/* ✅ Student Database */
 
 var students={
 
@@ -115,94 +94,4 @@ var students={
 "20034":{name:"DEBENDRA BHUYAN",gk:44,english:38,math:34},
 "20035":{name:"PRAMILA SABAR",gk:40,english:35,math:32},
 "20036":{name:"KAILASH CHANDRA SABAR",gk:48,english:40,math:37},
-"20037":{name:"SUNITA SABAR",gk:41,english:36,math:31},
-"20038":{name:"RAIBATI GAMANGO",gk:38,english:33,math:30},
-"20039":{name:"GOPAL SABAR",gk:46,english:38,math:35},
-"20040":{name:"SUKANTA KUMAR SABAR",gk:45,english:39,math:34},
-"20041":{name:"BIDYA DHARA SABAR",gk:48,english:40,math:38},
-"20042":{name:"PRADEEP NAYAK",gk:43,english:36,math:32},
-"20043":{name:"SOMONATH BADO RAITA",gk:40,english:34,math:30},
-"20044":{name:"SIBARAM SABAR",gk:44,english:37,math:33},
-"20046":{name:"ABHIMANYU SABAR",gk:46,english:38,math:34},
-"20048":{name:"RINA SABAR",gk:41,english:35,math:30},
-"20049":{name:"MAMATA BADAMUNDI",gk:42,english:36,math:32},
-"20050":{name:"SARATA SABAR",gk:40,english:34,math:31},
-"20051":{name:"DILLESWARA RAUTO",gk:45,english:38,math:33}
-
-};
-
-/* Search Function */
-
-function searchResult(){
-
-var roll=document.getElementById("rollInput").value.trim();
-
-if(students[roll]){
-
-var s=students[roll];
-
-var total=s.gk+s.english+s.math;
-var percent=(total/200)*100;
-
-var division="Third Division";
-
-if(percent>=60) division="First Division";
-else if(percent>=45) division="Second Division";
-
-document.getElementById("result").innerHTML=`
-
-<hr>
-
-<div style="border:3px solid #000080;padding:20px;background:white;">
-
-<h2>UGHS Organisation Examination 2025/2026</h2>
-
-<p><b>District :</b> Gajapati</p>
-<p><b>Centre :</b> Koinpur</p>
-<p><b>Centre Code :</b> 099882</p>
-
-<h3>${s.name}</h3>
-
-<table>
-
-<tr><th>Subject</th><th>Marks</th></tr>
-<tr><td>General Knowledge</td><td>${s.gk}</td></tr>
-<tr><td>English</td><td>${s.english}</td></tr>
-<tr><td>Mathematics</td><td>${s.math}</td></tr>
-
-<tr><th>Total</th><th>${total}/200</th></tr>
-<tr><th>Percentage</th><th>${percent.toFixed(2)}%</th></tr>
-<tr><th>Division</th><th>${division}</th></tr>
-<tr><th>Result</th><th style="color:green;">PASS</th></tr>
-
-</table>
-
-<div style="margin-top:60px;text-align:right;padding-right:60px;">
-
-<div class="signature-name">
-Debendra Kumar
-</div>
-
-<div style="font-size:14px;margin-top:5px;">
-Authority Signature
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}else{
-
-document.getElementById("result").innerHTML=
-"<h3 style='color:red'>Roll Number Not Found</h3>";
-
-}
-
-}
-
-</script>
-
-</body>
-</html>
+"20037":{name:"SUNITA SABAR",gk:41
