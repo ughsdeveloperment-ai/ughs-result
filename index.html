@@ -5,18 +5,29 @@
 
 <style>
 body{
-font-family: Arial;
-background:#e6f2ff;
+font-family: Arial, sans-serif;
+background:#f0f5ff;
 text-align:center;
 }
 
 .container{
 background:white;
-width:95%;
+width:90%;
 margin:auto;
 margin-top:20px;
 padding:20px;
-border:3px solid black;
+border:4px solid #000080;
+}
+
+.header{
+border-bottom:3px solid black;
+padding-bottom:10px;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#000080;
 }
 
 h2{
@@ -35,39 +46,63 @@ padding:8px;
 }
 
 th{
-background:#f2f2f2;
+background:#e6e6ff;
 }
 
 input{
 padding:8px;
-width:200px;
+width:220px;
 }
 
 button{
 padding:8px 15px;
-background:#003366;
+background:#000080;
 color:white;
 border:none;
-margin:5px;
 cursor:pointer;
+margin:5px;
 }
 
 .print-btn{
 background:green;
 }
-</style>
 
+.signature{
+margin-top:40px;
+text-align:right;
+padding-right:50px;
+}
+
+.signature-name{
+font-family:cursive;
+font-size:26px;
+color:#000080;
+}
+
+.seal{
+margin-top:20px;
+font-size:18px;
+color:red;
+font-weight:bold;
+border:2px solid red;
+display:inline-block;
+padding:8px 20px;
+border-radius:50px;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h2>UGHS Organisation Examination 2025/2026</h2>
+<div class="header">
+<div class="logo">UGHS ORGANISATION</div>
+<h2>Examination 2025/2026</h2>
 <p><b>District:</b> Gajapati</p>
 <p><b>Centre Code:</b> 099882</p>
-
-<hr>
+</div>
 
 <h3>Result Search</h3>
 
@@ -84,34 +119,9 @@ var students = {
 
 "20019": {name:"MUNA SABAR", gk:70, english:65, math:60},
 "20020": {name:"SUKUMANI SABAR", gk:68, english:66, math:62},
-"20021": {name:"LAXMINARAYAN SABAR", gk:72, english:69, math:64},
-"20023": {name:"SANTUNU SABAR", gk:66, english:63, math:61},
-"20024": {name:"ESWAR SABARA", gk:74, english:67, math:59},
-"20025": {name:"KAINA RAIKA", gk:65, english:64, math:63},
-"20026": {name:"PRASANTA SABAR", gk:78, english:72, math:70},
-"20027": {name:"CHAKRA SABAR", gk:64, english:62, math:60},
-"20028": {name:"SUDHAKAR SABAR", gk:75, english:71, math:69},
-"20029": {name:"LOKANATH SABAR", gk:69, english:66, math:63},
-"20030": {name:"RAMAKANTA SABAR", gk:67, english:64, math:61},
-"20031": {name:"MANOJ SANAPATTA BHUYAN", gk:80, english:74, math:72},
-"20032": {name:"JAYA DEV SABAR", gk:71, english:68, math:65},
-"20033": {name:"NABINA SABAR", gk:66, english:67, math:62},
-"20034": {name:"DEBENDRA BHUYAN", gk:73, english:69, math:66},
-"20035": {name:"PRAMILA SABAR", gk:68, english:63, math:60},
-"20036": {name:"KAILASH CHANDRA SABAR", gk:77, english:72, math:68},
-"20037": {name:"SUNITA SABAR", gk:69, english:65, math:62},
-"20038": {name:"RAIBATI GAMANGO", gk:64, english:63, math:61},
-"20039": {name:"GOPAL SABAR", gk:76, english:70, math:67},
-"20040": {name:"SUKANTA KUMAR SABAR", gk:72, english:68, math:64},
-"20041": {name:"BIDYA DHARA SABAR", gk:79, english:73, math:71},
-"20042": {name:"PRADEEP NAYAK", gk:70, english:66, math:63},
-"20043": {name:"SOMONATH BADO RAITA", gk:74, english:69, math:65},
-"20044": {name:"SIBARAM SABAR", gk:65, english:61, math:60},
-"20046": {name:"ABHIMANYU SABAR", gk:77, english:71, math:69},
-"20048": {name:"RINA SABAR", gk:68, english:65, math:62},
-"20049": {name:"MAMATA BADAMUNDI", gk:71, english:64, math:63},
-"20050": {name:"SARATA SABAR", gk:69, english:63, math:61},
-"20051": {name:"DILLESWARA RAUTO", gk:75, english:68, math:66}
+"20021": {name:"LAXMINARAYAN SABAR", gk:75, english:70, math:65},
+"20023": {name:"SANTUNU SABAR", gk:72, english:68, math:64},
+"20024": {name:"ESWAR SABARA", gk:71, english:69, math:63}
 
 };
 
@@ -152,6 +162,14 @@ document.getElementById("result").innerHTML = `
 <tr><th>Division</th><th>${division}</th></tr>
 <tr><th>Result</th><th>PASS</th></tr>
 </table>
+
+<div class="seal">OFFICIAL RESULT - ODISHA</div>
+
+<div class="signature">
+<div class="signature-name">A. K. Development</div>
+<div>Controller of Examination</div>
+<div>UGHS Organisation</div>
+</div>
 
 <button class="print-btn" onclick="window.print()">Print Result</button>
 `;
