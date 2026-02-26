@@ -5,7 +5,7 @@
 
 <style>
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#f0f5ff;
 text-align:center;
 }
@@ -52,7 +52,6 @@ border-bottom:2px solid black;
 margin-bottom:10px;
 padding-bottom:10px;
 }
-
 </style>
 </head>
 
@@ -75,33 +74,41 @@ padding-bottom:10px;
 
 <script>
 
+/* ✅ ALL STUDENTS DATABASE */
+
 var students={
 
-"E-2320026":{name:"MIKHA SABAR",gk:46,english:42,math:38},
-"E-2320032":{name:"SANJAYA KUMAR MANDAL",gk:48,english:44,math:40},
-"E-2320030":{name:"DEBARAJ GAMANGO",gk:45,english:41,math:37},
-"E-2320028":{name:"PURNA CHANDRA SABAR",gk:44,english:40,math:36},
-"E-2320034":{name:"SANJEEBA MANDAL",gk:47,english:43,math:39},
-"E-2320033":{name:"SHANKU SABAR",gk:42,english:38,math:35},
-"E-2320031":{name:"MAMITA GAMANGO",gk:46,english:42,math:38},
-"E-2320035":{name:"STIPHEN GAMANGO",gk:49,english:45,math:41},
 "E-2320025":{name:"UMACHARAN MANDAL",gk:43,english:39,math:36},
+"E-2320026":{name:"MIKHA SABAR",gk:46,english:42,math:38},
+"E-2320028":{name:"PURNA CHANDRA SABAR",gk:44,english:40,math:36},
+"E-2320030":{name:"DEBARAJ GAMANGO",gk:45,english:41,math:37},
+"E-2320031":{name:"MAMITA GAMANGO",gk:46,english:42,math:38},
+"E-2320032":{name:"SANJAYA KUMAR MANDAL",gk:48,english:44,math:40},
+"E-2320033":{name:"SHANKU SABAR",gk:42,english:38,math:35},
+"E-2320034":{name:"SANJEEBA MANDAL",gk:47,english:43,math:39},
+"E-2320035":{name:"STIPHEN GAMANGO",gk:49,english:45,math:41},
 "E-2320037":{name:"JAGANNATH GAMANGO",gk:50,english:46,math:42}
 
 };
 
+/* ✅ SEARCH FUNCTION */
+
 function searchResult(){
 
-var roll=document.getElementById("rollInput").value.trim();
-var s=students[roll];
+var roll=document.getElementById("rollInput").value.trim().toUpperCase();
 
-if(s){
+if(!students.hasOwnProperty(roll)){
+document.getElementById("result").innerHTML=
+"<h3 style='color:red'>Roll Number Not Found</h3>";
+return;
+}
+
+var s=students[roll];
 
 var total=s.gk+s.english+s.math;
 var percent=(total/200)*100;
 
 var division="Third Division";
-
 if(percent>=60) division="First Division";
 else if(percent>=45) division="Second Division";
 
@@ -131,13 +138,6 @@ document.getElementById("result").innerHTML=`
 <button onclick="window.print()" style="padding:10px 20px;background:green;color:white;border:none;">Print Result</button>
 
 `;
-
-}else{
-
-document.getElementById("result").innerHTML=
-"<h3 style='color:red'>Roll Number Not Found</h3>";
-
-}
 
 }
 
