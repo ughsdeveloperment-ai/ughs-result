@@ -1,32 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Result Portal</title>
+<title>UGHS Organisation Examination Result 2025</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f6ff;
+text-align:center;
+}
+
+.container{
+background:white;
+width:90%;
+margin:auto;
+margin-top:20px;
+padding:20px;
+border:3px solid #000080;
+}
+
+input{
+padding:8px;
+width:220px;
+}
+
+button{
+padding:8px 15px;
+background:#000080;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th,td{
+border:1px solid black;
+padding:8px;
+}
+
+th{
+background:#e6e6ff;
+}
+</style>
+
 </head>
 
-<body style="font-family:Arial;text-align:center;">
+<body>
 
-<h2>UGHS Organisation Examination 2025/2026</h2>
+<div class="container">
+
+<h2>UGHS Organisation Examination 2025</h2>
+
+<h3>Result Search</h3>
 
 <input type="text" id="rollInput" placeholder="Enter Roll Number">
 <button onclick="searchResult()">Search</button>
 
-<div id="result" style="margin-top:20px;"></div>
+<div id="result"></div>
+
+</div>
 
 <script>
 
 var students = {
 
-"E-2320025":{name:"UMACHARAN MANDAL",total:118},
-"E-2320026":{name:"MIKHA SABAR",total:126},
-"E-2320028":{name:"PURNA CHANDRA SABAR",total:120},
-"E-2320030":{name:"DEBARAJ GAMANGO",total:123},
-"E-2320031":{name:"MAMITA GAMANGO",total:124},
-"E-2320032":{name:"SANJAYA KUMAR MANDAL",total:132},
-"E-2320033":{name:"SHANKU SABAR",total:115},
-"E-2320034":{name:"SANJEEBA MANDAL",total:129},
-"E-2320035":{name:"STIPHEN GAMANGO",total:135},
-"E-2320037":{name:"JAGANNATH GAMANGO",total:138}
+"E-2320025":{name:"UMACHARAN MANDAL",gk:40,eng:38,math:40},
+"E-2320026":{name:"MIKHA SABAR",gk:45,eng:42,math:39},
+"E-2320028":{name:"PURNA CHANDRA SABAR",gk:42,eng:40,math:38},
+"E-2320030":{name:"DEBARAJ GAMANGO",gk:44,eng:41,math:37},
+"E-2320031":{name:"MAMITA GAMANGO",gk:43,eng:42,math:39},
+"E-2320032":{name:"SANJAYA KUMAR MANDAL",gk:48,eng:44,math:40},
+"E-2320033":{name:"SHANKU SABAR",gk:41,eng:38,math:36},
+"E-2320034":{name:"SANJEEBA MANDAL",gk:46,eng:43,math:39},
+"E-2320035":{name:"STIPHEN GAMANGO",gk:49,eng:45,math:41},
+"E-2320037":{name:"JAGANNATH GAMANGO",gk:50,eng:46,math:42}
 
 };
 
@@ -40,18 +92,80 @@ roll = "E-" + roll;
 
 if(students[roll]){
 
-document.getElementById("result").innerHTML =
+var s = students[roll];
+var total = s.gk + s.eng + s.math;
+var percent = (total/200)*100;
 
-"<h3>Result Published</h3>" +
-"<p><b>Name:</b> " + students[roll].name + "</p>" +
-"<p><b>Roll Number:</b> " + roll + "</p>" +
-"<p><b>Total Marks:</b> " + students[roll].total + "/200</p>" +
-"<p style='color:green;'><b>Status:</b> PASS</p>";
+var division="Third Division";
+if(percent>=60) division="First Division";
+else if(percent>=45) division="Second Division";
+
+document.getElementById("result").innerHTML = `
+
+<hr>
+
+<h3>UGHS ORGANISATION</h3>
+<p><b>District:</b> Gajapati</p>
+<p><b>Centre Name:</b> UGHS Examination Centre</p>
+<p><b>Centre Code:</b> 099882</p>
+
+<hr>
+
+<p><b>Student Name:</b> ${s.name}</p>
+<p><b>Roll Number:</b> ${roll}</p>
+
+<table>
+<tr>
+<th>Subject</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>General Knowledge</td>
+<td>${s.gk}</td>
+</tr>
+
+<tr>
+<td>English</td>
+<td>${s.eng}</td>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td>${s.math}</td>
+</tr>
+
+<tr>
+<th>Total</th>
+<th>${total} / 200</th>
+</tr>
+
+<tr>
+<th>Percentage</th>
+<th>${percent.toFixed(2)}%</th>
+</tr>
+
+<tr>
+<th>Division</th>
+<th>${division}</th>
+</tr>
+
+<tr>
+<th>Result</th>
+<th style="color:green;">PASS</th>
+</tr>
+
+</table>
+
+<br>
+<button onclick="window.print()">Print Result</button>
+
+`;
 
 }else{
 
 document.getElementById("result").innerHTML =
-"<p style='color:red;'><b>Result Not Found</b></p>";
+"<h3 style='color:red;'>Result Not Found</h3>";
 
 }
 
