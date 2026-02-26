@@ -1,80 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>UGHS Organisation Examination 2025/2026</title>
-
-<style>
-body{
-font-family:Arial, sans-serif;
-background:#f0f5ff;
-text-align:center;
-}
-
-.container{
-background:white;
-width:90%;
-margin:auto;
-margin-top:20px;
-padding:20px;
-border:4px solid #000080;
-}
-
-input{
-padding:8px;
-width:220px;
-}
-
-button{
-padding:8px 15px;
-background:#000080;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px;
-}
-
-th,td{
-border:1px solid black;
-padding:8px;
-}
-
-th{
-background:#e6e6ff;
-}
-
-.header{
-border-bottom:2px solid black;
-margin-bottom:10px;
-padding-bottom:10px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>UGHS Organisation Examination 2025/2026</h2>
-
-<h3>Result Search</h3>
-
-<input type="text" id="rollInput" placeholder="Enter Roll Number">
-<br><br>
-
-<button onclick="searchResult()">Search</button>
-
-<div id="result"></div>
-
-</div>
-
 <script>
-
-/* ✅ ALL STUDENTS DATABASE */
 
 var students={
 
@@ -91,19 +15,25 @@ var students={
 
 };
 
-/* ✅ SEARCH FUNCTION */
-
 function searchResult(){
 
-var roll=document.getElementById("rollInput").value.trim().toUpperCase();
+var input=document.getElementById("rollInput").value.trim().toUpperCase();
 
-if(!students.hasOwnProperty(roll)){
+/* Remove spaces */
+input=input.replace(/\s+/g,'');
+
+/* If user enters only number, auto add E- */
+if(!input.startsWith("E-")){
+input="E-"+input;
+}
+
+if(!students[input]){
 document.getElementById("result").innerHTML=
-"<h3 style='color:red'>Roll Number Not Found</h3>";
+"<h3 style='color:red'>Result Not Found</h3>";
 return;
 }
 
-var s=students[roll];
+var s=students[input];
 
 var total=s.gk+s.english+s.math;
 var percent=(total/200)*100;
@@ -114,16 +44,16 @@ else if(percent>=45) division="Second Division";
 
 document.getElementById("result").innerHTML=`
 
-<div class="header">
+<div style="border-bottom:2px solid black;margin-bottom:10px;padding-bottom:10px;">
 <h3>UGHS ORGANISATION</h3>
 <p><b>District:</b> Gajapati</p>
 <p><b>Centre Code:</b> 099882</p>
 </div>
 
 <h3>Student Name: ${s.name}</h3>
-<p><b>Roll Number:</b> ${roll}</p>
+<p><b>Roll Number:</b> ${input}</p>
 
-<table>
+<table border="1" width="100%" cellspacing="0" cellpadding="8">
 <tr><th>Subject</th><th>Marks</th></tr>
 <tr><td>General Knowledge</td><td>${s.gk}</td></tr>
 <tr><td>English</td><td>${s.english}</td></tr>
@@ -142,6 +72,3 @@ document.getElementById("result").innerHTML=`
 }
 
 </script>
-
-</body>
-</html>
